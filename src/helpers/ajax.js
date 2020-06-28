@@ -3,8 +3,8 @@ const ajaxPath = (endpoint) => {
     // console.log('endpoint','http://localhost:8080/',endpoint);
     return 'http://localhost:8080/' + endpoint;
   } else {
-    // console.log('endpoint','https://teamail-api.herokuapp.com/');
-    return 'https://teamail-api.herokuapp.com/' + endpoint;
+    // console.log('endpoint','https://lyricsdb-api.herokuapp.com/');
+    return 'https://lyricsdb-api.herokuapp.com/' + endpoint;
   }
     
 };
