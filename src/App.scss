@@ -1,0 +1,20 @@
+@import "~bootstrap/scss/bootstrap";
+
+$xs: "only screen and (min-width : 0px)";
+$sm: "only screen and (min-width : 576px)";
+$md: "only screen and (min-width : 768px)";
+$lg: "only screen and (min-width : 992px)";
+$xl: "only screen and (min-width : 1200px)";
+
+#add-lyrics-form {
+  margin: 10px 10px;
+}
+
+.col-br {
+  @media #{$xs} {
+    display: block;
+  }
+  @media #{$lg} {
+    display: none;
+  }
+}
