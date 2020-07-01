@@ -59,10 +59,11 @@ class AddLyrics extends React.Component {
   }
 
   postRecord = (postJSON, artistName, e) => {
-    console.log('postJSON',postJSON);
-    const { artistNames } = this.state;
+    const { artistNames, artistIDs } = this.state;
     if (artistNames.includes(artistName)) {
-      axios.post(ajaxPath('lyrics'), postJSON)
+      const artistID = artistIDs[artistName];
+      delete postJSON['artist_id'];
+      axios.post(`${ajaxPath('artists')}/${artistID}/lyrics`, postJSON)
       .then((res) => {
         this.setDefaults();
       })
@@ -72,8 +73,8 @@ class AddLyrics extends React.Component {
       const artistPostJSON = {name: artistName};
       axios.post(ajaxPath('artists'), artistPostJSON)
       .then((res) => {
-        postJSON['artist_id'] = res.data['id'];
-        axios.post(ajaxPath('lyrics'), postJSON)
+        const artistID =  res.data['id'];
+        axios.post(`${ajaxPath('artists')}/${artistID}/lyrics`, postJSON)
         .then((res) => {
           this.setDefaults();
           this.getArtists();
