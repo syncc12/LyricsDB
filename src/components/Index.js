@@ -73,7 +73,7 @@ class Index extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({showLyrics: false});
+    // this.setState({showLyrics: false});
     this.getArtists();
   }
 
